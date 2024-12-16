@@ -9,3 +9,9 @@ git config --global init.defaultBranch main
 git init
 git add .
 git commit -m 'initial commit'
+
+# mongodb+srv://root:<db_password>@wraydo.lppd3.mongodb.net/
+
+
+
+

@@ -33,22 +33,47 @@
         <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
     </header>
 
-    <main>
+    <main class="container">
 
+        <div class="social-buttons text-center">
+            <a href="https://www.icloud.com/" class="btn btn-dark d-block mb-2">Sign in with Apple</a>
+            <a href="https://accounts.google.com/signup/v2/kidaccountinfo?flowName=GlifWebSignIn&flowEntry=ServiceLogin&ddm=1" class="btn btn-primary d-block mb-2">Sign in with Google</a>
+            <a href="https://www.facebook.com/" class="btn btn-primary d-block mb-2">Sign in with Facebook</a>
+            <a href="https://www.instagram.com/accounts/emailsignup/" class="btn btn-secondary d-block">Sign in with Instagram</a>
+        </div>
+    
+        <!-- Divider -->
+        <div class="divider"><span>OR</span></div>
+    
+        <!-- Login Form -->
         <form id="login">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" minlength="3">
+            <div class="mb-3">
+                <label for="username" class="form-label">Email or Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your email or username" required>
             </div>
-
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" minlength="6">
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
             </div>
-
-            <button id="loginButton" type="submit">Login</button>
+            <button type="submit" class="btn btn-success w-100">Sign In</button>
         </form>
-
+    
+        <!-- Divider -->
+        <div class="divider"><span>Don't have an account?</span></div>
+    
+        <!-- Sign-Up Form -->
+        <form id="signup">
+            <div class="mb-3">
+                <label for="newUsername" class="form-label">Email</label>
+                <input type="email" class="form-control" id="newUsername" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="newPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="newPassword" placeholder="Create a password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+        </form>
+    </div>
     </main>
 
     <footer></footer>

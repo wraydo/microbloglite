@@ -1,1 +1,42 @@
-/* Landing Page CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f8fa;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .social-buttons button {
+            width: 100%;
+            margin: 5px 0;
+        }
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            height: 1px;
+            width: 40%;
+            background: #ddd;
+            position: absolute;
+            top: 50%;
+        }
+        .divider::before {
+            left: 0;
+        }
+        .divider::after {
+            right: 0;
+        }
+        .divider span {
+            background: #fff;
+            padding: 0 10px;
+            position: relative;
+        }
+  
