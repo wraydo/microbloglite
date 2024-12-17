@@ -1,4 +1,5 @@
   // Using querySelector for all selectors
+ 
   const postButton = document.querySelector("#postButton");
   const postContent = document.querySelector("#postContent");
   const postsContainer = document.querySelector("#postsContainer");
@@ -67,4 +68,3 @@
 
   // Initial render
   renderPosts();
-  
