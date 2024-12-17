@@ -63,6 +63,37 @@ function login (loginData) {
 }
 
 
+function register (registerData) {
+    // POST /auth/login
+    const options = { 
+        method: "POST",
+        headers: {
+            // This header specifies the type of content we're sending.
+            // This is required for endpoints expecting us to send
+            // JSON data.
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registerData),
+    };
+
+    return fetch(apiBaseURL + "/api/users", options)
+        .then(response => response.json())
+        .then(registerData => {
+            if (reg.message === "Invalid username or password") {
+                console.error(loginData)
+                // Here is where you might want to add an error notification 
+                // or other visible indicator to the page so that the user is  
+                // informed that they have entered the wrong login info.
+                return null
+            }
+
+            window.location.assign("index.html");  // redirect
+
+            // return registerData;
+        });
+}
+
+
 // This is the `logout()` function you will use for any logout button
 // which you may include in various pages in your app. Again, READ this
 // function and you will probably want to re-use parts of it for other
@@ -93,4 +124,5 @@ function logout () {
             window.localStorage.removeItem("login-data");  // remove login data from LocalStorage
             window.location.assign("/");  // redirect back to landing page (index.html)
         });
+
 }

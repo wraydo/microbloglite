@@ -19,7 +19,7 @@
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="posts.css">
 
-    <title>/POSTS</title>
+    <title>Posts Page</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
     <script src="auth.js"></script>
@@ -30,11 +30,43 @@
 </head>
 <body>
 
-    <header>
-        <h1>POSTS PAGE</h1>
-    </header>
+     <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#home">Home</a>
+        <a href="#explore">Explore</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#messages">Messages</a>
+        <a href="profile.html">Profile</a>
+    </div>
 
-    <main></main>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>Write a Post</h2>
+
+        <!-- Post Input Area -->
+        <div class="mb-4">
+            <textarea id="postContent" class="form-control" rows="3" placeholder="What's happening?"></textarea>
+            <button id="postButton" class="btn btn-primary mt-2">Post</button>
+        </div>
+
+        <h2>Your Posts</h2>
+        <div id="tweetsCount"></div>
+        <div id="postsContainer">
+            <!-- Dynamic Posts Will Appear Here -->
+        </div>
+    </div>
+
+    <!-- Trending Topics -->
+    <div class="trending">
+        <h4>Trending Topics</h4>
+        <ul>
+            <li><a href="#news">News</a></li>
+            <li><a href="#nfl">NFL</a></li>
+            <li><a href="#basketball">Basketball</a></li>
+            <li><a href="#fifa">FIFA World Cup</a></li>
+            <li><a href="#cricket">Cricket</a></li>
+        </ul>
+    </div>
 
     <footer></footer>
 

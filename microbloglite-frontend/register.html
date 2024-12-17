@@ -34,36 +34,25 @@
     </header>
 
     <main class="container">
-
-        <div class="social-buttons text-center">
-            <a href="https://www.icloud.com/" class="btn btn-dark d-block mb-2">Sign in with Apple</a>
-            <a href="https://accounts.google.com/signup/v2/kidaccountinfo?flowName=GlifWebSignIn&flowEntry=ServiceLogin&ddm=1" class="btn btn-primary d-block mb-2">Sign in with Google</a>
-            <a href="https://www.facebook.com/" class="btn btn-primary d-block mb-2">Sign in with Facebook</a>
-            <a href="https://www.instagram.com/accounts/emailsignup/" class="btn btn-secondary d-block">Sign in with Instagram</a>
-        </div>
-    
-        <!-- Divider -->
-        <div class="divider"><span>OR</span></div>
-    
-        <!-- Login Form -->
-        <form id="login">
+       
+        <form id="signup">
             <div class="mb-3">
-                <label for="username" class="form-label">Email or Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your email or username" required>
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="name" class="form-control" id="fullName" placeholder="Enter your full Name" required>
+                <br>
+                <label for="newUsername" class="form-label">Email</label>
+                <input type="email" class="form-control" id="newUsername" placeholder="Enter your email" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <label for="newPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="newPassword" placeholder="Create a password" required>
+                <br>
+                <label for="reenterPassword" class="form-label">Re-Enter Password</label>
+                <input type="password" class="form-control" id="reenterPassword" placeholder="Re-Enter password" required>
             </div>
-            <button type="submit" class="btn btn-success w-100">Sign In</button>
+            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
         </form>
-    
-        <!-- Divider -->
-         
-        <div class="divider"><span>Don't have an account?</span></div>
-    
-        <a href="register.html" class="btn btn-dark d-block mb-2">Create Account</a>
-   
+    <!-- </div> -->
     </main>
 
     <footer></footer>
