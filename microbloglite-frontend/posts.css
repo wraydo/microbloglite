@@ -5,80 +5,45 @@ body {
 }
 
 /* Sidebar */
+body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 .sidebar {
-    position: fixed;
-    height: 100vh;
-    width: 200px;
-    background-color: #fff;
+    width: 20%;
+    padding: 20px;
+    background-color: #f8f9fa;
     border-right: 1px solid #ddd;
-    padding: 20px 10px;
 }
 .sidebar a {
     display: block;
-    color: #333;
-    text-decoration: none;
     margin: 10px 0;
-    font-size: 18px;
+    text-decoration: none;
+    color: #007bff;
 }
-.sidebar a:hover {
-    color: #1d9bf0;
-}
-
-/* Main Content */
 .main-content {
-    margin-left: 220px;
-    margin-right: 220px;
+    width: 60%;
     padding: 20px;
 }
-.post {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    padding: 15px;
-    position: relative;
+.trending {
+    width: 20%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-left: 1px solid #ddd;
 }
-.post .post-time {
-    font-size: 12px;
-    color: #888;
+.post {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
 }
 .delete-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    border: none;
-    background-color: transparent;
     color: red;
     cursor: pointer;
-}
-
-/* Trending Topics */
-.trending {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 200px;
-    background-color: #fff;
-    border-left: 1px solid #ddd;
-    padding: 20px 10px;
-}
-.trending h4 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-.trending ul {
-    list-style: none;
-    padding: 0;
-}
-.trending ul li {
-    margin: 10px 0;
-    font-size: 16px;
-}
-.trending ul li a {
-    text-decoration: none;
-    color: #333;
-}
-.trending ul li a:hover {
-    color: #1d9bf0;
 }

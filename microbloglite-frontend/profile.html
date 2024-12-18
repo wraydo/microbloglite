@@ -18,6 +18,8 @@
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="profile.css">
     <title>Profile Page</title>
+     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
+     <script src="./auth.js"></script>
 </head>
 <body>
 </head>
@@ -29,7 +31,9 @@
             <input type="file" id="upload-pic" accept="image/*">
             <div class="profile-bio">
                 <h4>Joe</h4>
-                <p>UX/UI Designer | Audio Engineer | Tea Lover</p>
+                <p>UXUI Designer</p>
+                <p>Audio Engineer</p> 
+                <p>Tea Lover</p>
                 <p>🌍 Location: New York, USA</p>
                 <p>📅 Joined: January 2018</p>
                 <p>🔗 Website: <a href="#">www.joej.com</a></p>
@@ -53,7 +57,7 @@
                 </div>
                 <div>
                     <strong>Tweets</strong><br>
-                    <span id="tweetsCount">0</span>
+                    <span id="tweetsCount">800</span>
                 </div>
             </div>
 
@@ -73,5 +77,10 @@
             </ul>
         </div>
     </div>
+       <!-- Page-specific code -->
+       <script src="profile.js"></script>
     </body>
     </html>
+
+
+    
