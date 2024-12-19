@@ -39,7 +39,6 @@
       <a href="profile.html">Profile</a>
       <!-- <a href="logout.html" onclick="logout()">Logout</a> -->
       <button class="logout-button" onclick="logout()">Logout</button>
-
     </div>
 
     <!-- Main Content -->
@@ -47,9 +46,8 @@
       <h2>Write a Post</h2>
       <form onsubmit="createAPost()">
         <textarea id="postContent" class="form-control" rows="3" placeholder="What's happening?"></textarea>
-        <button type="button" id="postButton" class="btn btn-primary mt-2">Post</button>
+        <button id="postButton" class="btn btn-primary mt-2">Post</button>
       </form>
-
       <h2>Your Posts</h2>
       <div id="tweetsCount" class="mb-3"></div>
       <div id="postsContainer" class="posts-container"></div>
