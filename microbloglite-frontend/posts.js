@@ -105,13 +105,14 @@ initializePage();
 //     console.error("Error Message", Error);
 //   }
 // }
-async function createAPost() {
+async function createAPost(event) {
   const loginData = getLoginData();
+  event.preventDefault();
   let newPost = {
     text: document.getElementById("postContent").value.trim(),
   };
   try {
-    let promise = fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", {
+    let promise =  await fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -122,8 +123,8 @@ async function createAPost() {
     let response = await promise;
     let data = await response.json();
     console.log(data);
-    // location.reload(true)
+    location.reload(true)
   } catch (error) {
-    console.error;
+    console.log(error);
   }
 } 
