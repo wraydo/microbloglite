@@ -22,6 +22,42 @@ body {
     text-decoration: none;
     color: #007bff;
 }
+/* Sidebar */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar img {
+    margin-left: 5px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Prevents image distortion */
+}
+
+/* Optional: if the images are not square */
+.sidebar img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Logout Button */
+.logout-button {
+    background-color: #FFC0CB; /* Light Red (Pink) */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
 .main-content {
     width: 60%;
     padding: 20px;

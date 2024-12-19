@@ -36,3 +36,25 @@
 
   // Add event listener to initialize user data
   document.addEventListener("DOMContentLoaded", fetchUserDetails);
+
+
+
+  const loginData = getLoginData();
+  try {
+    let promise = fetch(`http://microbloglite.us-east-2.elasticbeanstalk.com/api/users?limit=100&offset=0=${loginData.username}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${loginData.token}`,
+      },
+    });
+    let response = await promise;
+    let data = await response.json();
+    console.log(data);
+    createPostCards(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+getAllUserPosts(); 
+

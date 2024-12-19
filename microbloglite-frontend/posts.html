@@ -32,21 +32,23 @@
   <body>
     <!-- Sidebar -->
     <div class="sidebar">
-      <a href="#home">Home</a>
+      <a href="posts.html">Home</a>
       <a href="#explore">Explore</a>
-      <a href="#notifications">Notifications</a>
-      <a href="#messages">Messages</a>
+      <a href="#notifications">Notifications <img src="images/twitternotifb.JPG" alt="" width="30" height="30" /></a>
+      <a href="#messages">Messages <img src="images/TNotifications.JPG" alt="" width="30" height="30" /></a>
       <a href="profile.html">Profile</a>
-      <a href="logout.html">Logout</a>
+      <!-- <a href="logout.html" onclick="logout()">Logout</a> -->
+      <button class="logout-button" onclick="logout()">Logout</button>
+
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
       <h2>Write a Post</h2>
-      <div>
+      <form onsubmit="createAPost()">
         <textarea id="postContent" class="form-control" rows="3" placeholder="What's happening?"></textarea>
-        <button id="postButton" class="btn btn-primary mt-2">Post</button>
-      </div>
+        <button type="button" id="postButton" class="btn btn-primary mt-2">Post</button>
+      </form>
 
       <h2>Your Posts</h2>
       <div id="tweetsCount" class="mb-3"></div>
@@ -57,7 +59,7 @@
     <div class="trending">
       <h4>Trending Topics</h4>
       <ul>
-        <li><a href="#news">News</a></li>
+        <li><a href="https://www.cnn.com/">News</a></li>
         <li><a href="#nfl">NFL</a></li>
         <li><a href="#basketball">Basketball</a></li>
         <li><a href="#fifa">FIFA World Cup</a></li>
