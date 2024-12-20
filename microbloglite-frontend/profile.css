@@ -1,90 +1,167 @@
 
+/* Global Styles */
 body {
     background-color: #f5f8fa;
     font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
 }
+
 /* Sidebar */
 .sidebar {
     width: 20%;
+    background-color: #343a40; /* Consistent with the first page */
+    color: white;
     padding: 20px;
-    background: white;
+    min-height: 100vh;
     border-right: 1px solid #ddd;
+    text-align: center;
 }
-.profile-bio h4 {
+
+.sidebar img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-bottom: 15px;
+}
+
+.sidebar .profile-bio h4 {
     margin-top: 10px;
 }
-.profile-bio a {
+
+.sidebar .profile-bio p {
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.sidebar .profile-bio a {
     color: #1d9bf0;
     text-decoration: none;
 }
-/* Profile Picture */
-#profile-pic {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-    margin-bottom: 10px;
-}
 
-/* Logout Button */
-.logout-button {
-    background-color: #FFC0CB; /* Light Red (Pink) */
-    border: none;
+.sidebar a {
     color: white;
-    padding: 10px 20px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+    display: block;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #007bff;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.sidebar .logout-button {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
     border-radius: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-
-
-
-
-
-/* Top Stats */
-.stats {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+.sidebar .logout-button:hover {
+    background-color: #d9534f;
 }
-.stats div {
-    text-align: center;
-}
+
+/* Posts Container */
 .posts-container {
     width: 60%;
     padding: 20px;
-}
-.post {
     background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.posts-container textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.posts-container .btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.posts-container .post {
+    background-color: white;
     border: 1px solid #ddd;
     border-radius: 10px;
     margin-bottom: 15px;
     padding: 15px;
     position: relative;
 }
-.delete-btn {
+
+.posts-container .post .delete-btn {
     position: absolute;
     top: 10px;
     right: 10px;
     color: red;
     cursor: pointer;
 }
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.stats div {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Recommendations */
 .recommendations {
     width: 20%;
+    background: #f8f9fa;
     padding: 20px;
-    background: white;
     border-left: 1px solid #ddd;
+    border-radius: 0 10px 10px 0;
+}
+
+.recommendations h4 {
+    margin-bottom: 15px;
+}
+
+.recommendations ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.recommendations ul li {
+    margin-bottom: 10px;
+}
+
+.recommendations ul li a {
+    color: #007bff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.recommendations ul li a:hover {
+    text-decoration: underline;
 }

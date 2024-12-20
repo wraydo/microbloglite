@@ -1,56 +1,13 @@
 "use strict";
 
-// Global variables
-const postInput = document.querySelector("#postInput");
+// Select DOM elements
 const postContent = document.getElementById("postContent");
-const postButton = document.querySelector("#postButton");
-const responseMessage = document.querySelector("#responseMessage");
-const logoutBtn = document.querySelector("#logout");
 const postsContainer = document.querySelector("#postsContainer");
 
-// Logout functionality
-// logoutBtn.addEventListener("click", (event) => {
-//   logout(); // Assumes logout() is defined in auth.js
-//   window.location.replace("index.html");
-// });
 
-// Post creation functionality
-// postButton.addEventListener("click", (event) => {
-//   const loginData = getLoginData();
-
-//   const textToPost = postInput.value;
-
-//   const options = {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${loginData.token}`,
-//     },
-//     body: JSON.stringify({ text: textToPost }),
-//   };
-
-//   fetch(apiBaseURL + "/api/posts", options)
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Network response was not ok");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log("Post created:", data);
-//       responseMessage.textContent = "Post successful!";
-//       responseMessage.style.color = "green";
-//       postInput.value = ""; // Clear input after successful post
-//     })
-//     .catch((error) => {
-//       console.error("There was a problem with the fetch operation:", error);
-//       responseMessage.textContent = "Failed to post. Please try again.";
-//       responseMessage.style.color = "red";
-//     });
-// });
-
+// Fetch posts from the API and display them
 async function getPosts() {
-  const loginData = getLoginData();
+  const loginData = getLoginData(); // Assumes getLoginData() is defined elsewhere
   const options = {
     method: "GET",
     headers: {
@@ -58,107 +15,77 @@ async function getPosts() {
       Authorization: `Bearer ${loginData.token}`,
     },
   };
-  let promise = fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", options);
-  let response = await promise;
-  let data = await response.json();
-  // let showCertainPost = data.slice(0,4)
-  console.log(data);
-  postsCardsDisplay(data);
+  
+    const response = await fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", options);
+    const data = await response.json();
+    postsCardsDisplay(data);
+  
 }
 
+// Create and display post cards
 function postsCardsDisplay(posts) {
-  for (let i = 0; i < posts.length; i++) {
+  postsContainer.innerHTML = ""; // Clear container before adding posts
+  posts.forEach((post) => {
     const postCard = document.createElement("div");
-    postCard.className = "card";
-    postCard.innerHTML = ` 
-     <div class="card-body">
-     <h5 class="card-title">${posts[i].username}</h5>
-     <h5 class="card-title">${posts[i].text}</h5>
-     <h5 class="card-title">${posts[i].createdAt}</h5>
-     `;
+    postCard.className = "card mb-3";
 
+    postCard.innerHTML = `
+      <div class="card-body">
+        <h5 class="card-title">${post.username}</h5>
+        <p class="card-text">${post.text}</p>
+        <p class="card-text"><small class="text-muted">${new Date(post.createdAt).toLocaleString()}</small></p>
+      </div>
+    `;
+
+    // Create Delete Button
     const deletePost = document.createElement("button");
-    deletePost.innerText = "Delete";
-    deletePost.innerHTML = '<i class="bi bi-file-x"></i>';
-    // deletePost.className = "h-25 w-25 btn btn-danger"
+    deletePost.className = "btn btn-danger btn-sm rounded-circle";
+    deletePost.innerHTML = '<i class="bi bi-x-lg"></i>';
+    deletePost.style.float = "right";
 
-    deletePost.style.borderRadius = "50%";
-    deletePost.style.width = "40px"; // Or any desired diameter
-    deletePost.style.height = "40px"; // Must be equal to width for a circle
-    deletePost.style.display = "inline-flex";
-    deletePost.style.alignItems = "center";
-    deletePost.style.justifyContent = "center";
-
-    // Set the background color to red
-    deletePost.style.backgroundColor = "red"; // Classic red
-    // OR
-    deletePost.style.backgroundColor = "#FF0000"; // Hex code for red
-
-    // Optional: Set text color to white for better contrast
-    deletePost.style.color = "white";
-
+    // Add delete functionality
     deletePost.addEventListener("click", async () => {
-      if (posts[i]._id) {
+      if (post._id) {
         const loginData = getLoginData();
         try {
-          let promise = fetch(`http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts/${posts[i]._id}`, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${loginData.token}`,
-            },
-          });
-          let response = await promise;
-          let data = await response.json();
-          console.log(data);
+          const response = await fetch(
+            `http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts/${post._id}`,
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${loginData.token}`,
+              },
+            }
+          );
           if (response.ok) {
-            console.log("Great work");
+            postCard.remove(); // Remove card from UI
+            console.log("Post deleted successfully");
+          } else {
+            throw new Error("Failed to delete post");
           }
         } catch (error) {
-          console.error(error);
+          console.error("Error deleting post:", error);
         }
       }
     });
-    postCard.appendChild(deletePost);
+
+    postCard.querySelector(".card-body").appendChild(deletePost);
     postsContainer.appendChild(postCard);
-  }
-}
-async function initializePage() {
-  let posts = await getPosts();
-  //   renderPosts(posts);
+  });
 }
 
-initializePage();
-
-// async function createPost() {
-//   const loginData = getLoginData();
-//   let postInfo = {
-//     text: document.getElementById("postContent").value.trim(),
-//   };
-//   try {
-//     let promise = fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${loginData.token}`,
-//       },
-//       body: JSON.stringify(postInfo),
-//     });
-//     let response = await promise;
-//     let data = await response.json();
-//     console.log(data);
-//   } catch (error) {
-//     console.error("Error Message", Error);
-//   }
-// }
+// Create a new post
 async function createAPost(event) {
-  const loginData = getLoginData();
   event.preventDefault();
-  let newPost = {
-    text: document.getElementById("postContent").value.trim(),
+  const loginData = getLoginData(); // Assumes getLoginData() is defined elsewhere
+  const newPost = {
+    text: postContent.value.trim(),
   };
+  if (!newPost.text) return; // Do nothing if post is empty
+
   try {
-    let promise = await fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", {
+    const response = await fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -166,11 +93,20 @@ async function createAPost(event) {
       },
       body: JSON.stringify(newPost),
     });
-    let response = await promise;
-    let data = await response.json();
-    console.log(data);
-    location.reload(true);
+    if (!response.ok) throw new Error("Failed to create post");
+    const data = await response.json();
+    console.log("Post created successfully:", data);
+    postContent.value = ""; // Clear the input
+    getPosts(); // Refresh posts
   } catch (error) {
-    console.log(error);
+    console.error("Error creating post:", error);
   }
 }
+
+// Initialize the page
+async function initializePage() {
+  await getPosts(); // Fetch and display posts
+}
+
+// Call initialization function on page load
+initializePage();
