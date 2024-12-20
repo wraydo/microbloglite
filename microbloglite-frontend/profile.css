@@ -120,6 +120,28 @@ body {
     cursor: pointer;
 }
 
+/* Post Button */
+.post-button {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 16px; /* Adjust font size as needed */
+    cursor: pointer; /* Make it look clickable */
+    font-weight: 500; /* Slightly bolder font-weight */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.post-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.post-button:active {
+    transform: translateY(1px); /* Small move down on click */
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* Smaller shadow on click */
+}
+
 /* Stats Section */
 .stats {
     display: flex;
