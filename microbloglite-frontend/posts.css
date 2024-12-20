@@ -83,3 +83,72 @@ body {
     color: red;
     cursor: pointer;
 }
+
+        /* Nav-Bar */ 
+   /* Basic page styling for demonstration */
+   body {
+    margin: 0; /* Remove default body margin */
+    font-family: sans-serif;
+}
+
+nav {
+    background-color: #f0f0f0; /* Example background color */
+    padding: 10px;
+    position: fixed; /* Fixed navbar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Ensure it's on top */
+}
+
+.navbar-brand {
+    display: inline-block;
+    position: relative; /* For absolute positioning of the pseudo-element */
+    margin-left: 20px; /* Adjust left margin as needed */
+}
+
+.navbar-brand img {
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.navbar-brand::before {
+    content: "";
+    position: absolute;
+    width: 21.21px; /* Adjust if image size changes */
+    height: 21.21px; /* Adjust if image size changes */
+    background-color: transparent;
+    border: 1px solid black; /* Adjust border color */
+    transform: rotate(-45deg);
+    margin-top: 4.25px; /* Adjust if image size changes */
+    margin-left: 4.25px; /* Adjust if image size changes */
+}
+
+/* Post */
+.post {
+    position: relative;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .delete-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #ff5c5c;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .delete-button:hover {
+    color: #ff0000;
+  }

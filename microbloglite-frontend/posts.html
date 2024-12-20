@@ -12,6 +12,7 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -19,7 +20,8 @@
     ></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="microbloglite-frontend/global.css" />
+
     <link rel="stylesheet" href="posts.css" />
 
     <title>Posts Page</title>
@@ -37,7 +39,6 @@
       <a href="#notifications">Notifications <img src="images/twitternotifb.JPG" alt="" width="30" height="30" /></a>
       <a href="#messages">Messages <img src="images/TNotifications.JPG" alt="" width="30" height="30" /></a>
       <a href="profile.html">Profile</a>
-      <!-- <a href="logout.html" onclick="logout()">Logout</a> -->
       <button class="logout-button" onclick="logout()">Logout</button>
     </div>
 
@@ -48,6 +49,7 @@
         <textarea id="postContent" class="form-control" rows="3" placeholder="What's happening?"></textarea>
         <button id="postButton" class="btn btn-primary mt-2">Post</button>
       </form>
+
       <h2>Your Posts</h2>
       <div id="tweetsCount" class="mb-3"></div>
       <div id="postsContainer" class="posts-container"></div>

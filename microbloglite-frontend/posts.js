@@ -72,8 +72,54 @@ function postsCardsDisplay(posts) {
     postCard.className = "card";
     postCard.innerHTML = ` 
      <div class="card-body">
+     <h5 class="card-title">${posts[i].username}</h5>
      <h5 class="card-title">${posts[i].text}</h5>
+     <h5 class="card-title">${posts[i].createdAt}</h5>
      `;
+
+    const deletePost = document.createElement("button");
+    deletePost.innerText = "Delete";
+    deletePost.innerHTML = '<i class="bi bi-file-x"></i>';
+    // deletePost.className = "h-25 w-25 btn btn-danger"
+
+    deletePost.style.borderRadius = "50%";
+    deletePost.style.width = "40px"; // Or any desired diameter
+    deletePost.style.height = "40px"; // Must be equal to width for a circle
+    deletePost.style.display = "inline-flex";
+    deletePost.style.alignItems = "center";
+    deletePost.style.justifyContent = "center";
+
+    // Set the background color to red
+    deletePost.style.backgroundColor = "red"; // Classic red
+    // OR
+    deletePost.style.backgroundColor = "#FF0000"; // Hex code for red
+
+    // Optional: Set text color to white for better contrast
+    deletePost.style.color = "white";
+
+    deletePost.addEventListener("click", async () => {
+      if (posts[i]._id) {
+        const loginData = getLoginData();
+        try {
+          let promise = fetch(`http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts/${posts[i]._id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${loginData.token}`,
+            },
+          });
+          let response = await promise;
+          let data = await response.json();
+          console.log(data);
+          if (response.ok) {
+            console.log("Great work");
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    });
+    postCard.appendChild(deletePost);
     postsContainer.appendChild(postCard);
   }
 }
@@ -112,7 +158,7 @@ async function createAPost(event) {
     text: document.getElementById("postContent").value.trim(),
   };
   try {
-    let promise =  await fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", {
+    let promise = await fetch("http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -123,8 +169,8 @@ async function createAPost(event) {
     let response = await promise;
     let data = await response.json();
     console.log(data);
-    location.reload(true)
+    location.reload(true);
   } catch (error) {
     console.log(error);
   }
-} 
+}
